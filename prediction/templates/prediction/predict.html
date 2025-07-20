@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomato Price Prediction</title>
+</head>
+<body>
+    <h1>Predict Tomato Price</h1>
+    <form method="POST" action="{% url 'predict_price' %}">
+        {% csrf_token %}
+        <label for="date">Enter a date (YYYY-MM-DD):</label>
+        <input type="text" id="date" name="date" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <h2>Prediction for {{ date }}:</h2>
+        <p>Predicted Modal Price: {{ prediction.Predicted_Modal_Price }}</p>
+        <p>Predicted Min Price: {{ prediction.Predicted_Min_Price }}</p>
+        <p>Predicted Max Price: {{ prediction.Predicted_Max_Price }}</p>
+    {% endif %}
+</body>
+</html>

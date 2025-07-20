@@ -1,0 +1,8 @@
+Django>=5.1.2
+django-heroku
+dj-database-url
+pandas
+matplotlib
+prophet
+plotly
+openpyxl
